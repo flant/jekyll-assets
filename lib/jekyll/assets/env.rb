@@ -193,6 +193,12 @@ module Jekyll
           end
         end
 
+        if jekyll.theme then
+          Config::DIRECTORIES.map do |name|
+            append_path Pathutil.new(format("#{jekyll.theme.assets_path}/%<name>s", name: name))
+          end
+        end
+
         paths
       end
 
